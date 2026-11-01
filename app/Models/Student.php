@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 #[Fillable(['name', 'nim'])]
-class student extends Model
+class Student extends Model
 {
     use HasFactory;
 }

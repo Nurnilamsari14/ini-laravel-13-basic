@@ -13,8 +13,9 @@
 
     
 
-<form method="POST" action="<?php echo e(route('student.store')); ?>">
+<form method="POST" action="<?php echo e(route('student.update', $student)); ?>">
     <?php echo csrf_field(); ?>
+    <?php echo method_field('put'); ?>
 
     <div class="mb-3">
 
@@ -26,7 +27,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="name" name="name">
+unset($__errorArgs, $__bag); ?>" id="name" name="name"
+        value="<?php echo e(old('name', $student->name)); ?>">
         <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -50,7 +52,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="nim" name="nim">
+unset($__errorArgs, $__bag); ?>" id="nim" name="nim" 
+        value="<?php echo e(old('nim', $student->nim)); ?>">
         <?php $__errorArgs = ['nim'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -78,4 +81,4 @@ unset($__errorArgs, $__bag); ?>
 <?php if (isset($__componentOriginal165f8e34452936f6da18fceb86497519)): ?>
 <?php $component = $__componentOriginal165f8e34452936f6da18fceb86497519; ?>
 <?php unset($__componentOriginal165f8e34452936f6da18fceb86497519); ?>
-<?php endif; ?><?php /**PATH D:\laravel\laraver-basic\resources\views/student/create.blade.php ENDPATH**/ ?>
+<?php endif; ?><?php /**PATH D:\laravel\laraver-basic\resources\views/student/edit.blade.php ENDPATH**/ ?>

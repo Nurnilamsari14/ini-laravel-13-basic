@@ -11,6 +11,14 @@
 
      <?php $__env->slot('title', null, []); ?> <?php echo e($title); ?> <?php $__env->endSlot(); ?>
 
+
+    <?php if(session('success')): ?>
+        <div class="alert alert-success" role="alert">
+            <?php echo e(session('success')); ?>
+
+        </div>
+    <?php endif; ?>
+
     <a class="btn btn-primary mb-3" href="<?php echo e(route('student.create')); ?>" role="button">Create Student</a>
 
 <table class="table table-bordered border-primary table-hover">
@@ -32,7 +40,12 @@
                     <td><?php echo e($student->name); ?></td>
                     <td><?php echo e($student->nim); ?></td>
                     <td>
-
+                        <a class="btn btn-warning" href="<?php echo e(route('student.edit', $student)); ?>" role="button">Edit</a>
+                        <form method="POST" action="<?php echo e(route('student.destroy', $student)); ?>"class = "d-inline">
+                            <?php echo csrf_field(); ?>
+                            <?php echo method_field('delete'); ?>
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('are you sure?')">Delete</button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
