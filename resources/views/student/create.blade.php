@@ -1,6 +1,7 @@
-<x-App>
+<x-app>
 
     <x-slot:title>{{ $title }}</x-slot>
 
-    <h1.fw class="fw-bold">from create Student</H1>
-</x-App>
+    <a class="btn btn-primary" href="/student" role="button">Back To Student</a>
+    
+</x-app>
