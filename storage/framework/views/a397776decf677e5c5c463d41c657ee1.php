@@ -11,7 +11,34 @@
 
      <?php $__env->slot('title', null, []); ?> <?php echo e($title); ?> <?php $__env->endSlot(); ?>
 
-    <a class="btn btn-primary" href="/student/create" role="button">Create Student</a>
+    <a class="btn btn-primary mb-3" href="<?php echo e(route('student.create')); ?>" role="button">Create Student</a>
+
+<table class="table table-bordered border-primary table-hover">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Nim</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+        <tbody>
+
+            <?php $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+            
+                <tr>
+                    <th scope="row"><?php echo e($loop->iteration); ?></th>
+                    <td><?php echo e($student->name); ?></td>
+                    <td><?php echo e($student->nim); ?></td>
+                    <td>
+
+                    </td>
+                </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+        </tbody>
+</table>
 
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

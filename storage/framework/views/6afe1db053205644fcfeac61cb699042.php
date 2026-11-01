@@ -11,7 +11,63 @@
 
      <?php $__env->slot('title', null, []); ?> <?php echo e($title); ?> <?php $__env->endSlot(); ?>
 
-    <a class="btn btn-primary" href="/student" role="button">Back To Student</a>
+    
+
+<form method="POST" action="<?php echo e(route('student.store')); ?>">
+    <?php echo csrf_field(); ?>
+
+    <div class="mb-3">
+
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="name" name="name">
+        <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+            <div class="invalid-feedback"><?php echo e($message); ?></div>
+        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label for="nim" class="form-label">NIM</label>
+        <input type="text" class="form-control <?php $__errorArgs = ['nim'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="nim" name="nim">
+        <?php $__errorArgs = ['nim'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+            <div class="invalid-feedback"><?php echo e($message); ?></div>
+        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+
+    </div>
+
+    <a class="btn btn-warning" href="<?php echo e(route('student.index')); ?>" role="button">Back</a>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+</form>
     
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

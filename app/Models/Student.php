@@ -9,5 +9,5 @@ use Illuminate\Database\Eloquent\Model;
 #[Fillable(['name', 'nim'])]
 class student extends Model
 {
-    //
+    use HasFactory;
 }
